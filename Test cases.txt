@@ -1,0 +1,152 @@
+Test cases:
+--------------------------------------------------
+Many test cases are found in the report of all files. 
+Arrays of 100,1000,10000,100000,1000000,10000000,10000000, 100000000
+1B can't be tested due to laptop's limited capabilites and memory.
+--------------------------------------------------
+
+However, these are extreme test case:
+
+All files common test cases:
+
+*IF ARRAY LENGTH <= 0*
+enter the length of the array: 0
+the length of the array should be a positive integer
+
+enter the length of the array: -1
+the length of the array should be a positive integer
+
+
+
+*IF THREAD NUMBER <= 0*
+enter the length of the array: 1
+Main thread started
+Input the number of threads: 0
+The number of threads should be greater than 0
+
+enter the length of the array: 10
+Main thread started
+Input the number of threads: -1
+The number of threads should be greater than 0
+
+
+*IF NUMBER OF THREADS > ARRAY LENGTH*
+enter the length of the array: 100
+Main thread started
+Input the number of threads: 1000
+The number of threads should be less than the length of the array 
+
+
+*NUMBER OF THREADS = ARRAY LENGTH*
+enter the length of the array: 100
+Main thread started
+Input the number of threads: 100
+The program worked 100 times
+Main thread finished
+Time spent: 0.001380
+
+*IF ARRAY LENGTH IS NOT A MULTIPLE OF THE NUMBER OF THREADS*
+enter the length of the array: 33
+Main thread started
+Input the number of threads: 2
+The program worked 100 times
+Main thread finished
+Time spent: 0.000920
+--------------------------------------------
+
+Count Race giving wrong and true outputs is found in the report
+Other file codes giving only right outputs is found in the report
+
+Still here some examples:
+
+
+Count race.c:
+
+//Didn't Fail
+enter the length of the array: 155
+Main thread started
+Input the number of threads: 20
+The program worked 100 times
+Main thread finished
+Time spent: 0.000540
+
+//Fail 
+//time still counts
+enter the length of the array: 100000
+Main thread started
+Input the number of threads: 64 
+The program did not work 4 times
+Main thread finished
+Time spent: 0.001290
+
+//Didn't Fail
+enter the length of the array: 12345  
+Main thread started
+Input the number of threads: 56
+The program worked 100 times
+Main thread finished
+Time spent: 0.001000
+
+Count Mutex:
+
+//didn't Fail
+enter the length of the array: 1234
+Main thread started
+Input the number of threads: 2
+The program worked 100 times
+Main thread finished
+Time spent: 0.000860
+
+//didn't Fail
+enter the length of the array: 64
+Main thread started
+Input the number of threads: 64
+The program worked 100 times
+Main thread finished
+Time spent: 0.001120
+
+
+Count Private:
+
+//didn't Fail
+enter the length of the array: 1
+Main thread started
+Input the number of threads: 1
+The program worked 100 times
+Main thread finished
+Time spent: 0.001080
+
+//didn't Fail
+enter the length of the array: 33333
+Main thread started
+Input the number of threads: 33
+The program worked 100 times
+Main thread finished
+Time spent: 0.001110
+
+
+Count Cache:
+
+//didn't Fail
+enter the length of the array: 15
+Main thread started
+Input the number of threads: 10
+The program worked 100 times
+Main thread finished
+Time spent: 0.000410
+
+//didn't Fail
+enter the length of the array: 100000
+Main thread started
+Input the number of threads: 60
+The program worked 100 times
+Main thread finished
+Time spent: 0.001220
+
+
+
+
+
+
+
+
