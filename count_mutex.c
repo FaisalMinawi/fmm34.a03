@@ -130,6 +130,13 @@ int main()
     printf("enter the length of the array: ");
     scanf("%d", &length);
 
+    //check for length
+    if (length <= 0)
+    {
+        printf("the length of the array should be a positive integer");
+        return 0;
+    }
+
     // Allocate memory for the array
     array = (int *)malloc(length * sizeof(int));
 
@@ -137,9 +144,22 @@ int main()
     printf("Main thread started\n");
     printf("Input the number of threads: ");
     scanf("%d", &number_of_threads);
-
+    
+    //check for number of threads (should be a positive integer)
+    if (number_of_threads <= 0)
+    {
+        printf("The number of threads should be greater than 0\n");
+        return 0;
+    }
     // Calculate the chunk size that each thread should work on
     chunk = length / number_of_threads;
+
+    //check if the length of the array is greater than the number of threads
+    if (chunk == 0)
+    {
+        printf("The number of threads should be less than the length of the array\n");
+        return 0;
+    }
 
     // call the program function
     int how_many_times_the_program_worked = 0;
